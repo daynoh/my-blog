@@ -12,16 +12,16 @@ interface BlogProps {
 const RecentPosts = ({blogs}:BlogProps) => {
     const sortedBlogs = sortBlogs(blogs)
   return (
-    <section className='w-full mt-32 px-32 flex flex-col items-center justify-center'>
+    <section className='w-full mt-16 sm:mt-24 px-5 sm:px-10 md:px-24 sxl:px-32 flex flex-col items-center justify-center'>
          <div className='w-full flex justify-between'>
-            <h2 className='inline-block capitalize font-bold text-4xl'>
-                Recent posts
-            </h2>
+         <h2 className='w-fit inline-block capitalize font-bold text-2xl md:text-4xl dark: text-light'>
+            Recent posts
+        </h2>
             <Link href = "/categories/all" className='inline-block font-medium text-accent underline
-            underline-offset-2 text-lg capitalize'> view all </Link>
+            underline-offset-2 text-base md:text-lg capitalize'> view all </Link>
         
         </div>   
-        <div className='grid grid-cols-3 grid-rows-2 gap-16 mt-14'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 grid-rows-2 gap-16 mt-14'>
            {
              sortedBlogs.slice(5,11).map((blog, index)=>(
             <article key={index} className='col-span-1 row-span-1 relative'><BlogLayoutThree blog= {blog}/></article>

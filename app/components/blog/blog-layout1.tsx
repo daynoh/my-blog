@@ -22,12 +22,13 @@ const BlogLayoutOne = ({blog}:blogProps) => {
             
             className='w-full h-full object-center object-cover rounded-xl z-0 group-hover:scale-105 transition-all duration-500' />
 
-            <div className="w-full absolute bottom-0 p-10 z-20">
+            <div className="w-full absolute bottom-0 p-4 xs:p-6 sm:p-10 z-20">
                 
-                <Tag link={`/categories/${blog.tags?.[0]}`} name={blog.tags?.[0]}
-                className= 'px-6 text-sm py-2 !border'/>
+                <Tag link={`/categories/${blog.tags?.[0]}`} name={blog.tags![0]}
+                className= 'px-6 text-xs sm:text-sm py-1 sm:py-2 !border'/>
                 <Link href={blog.url} className='mt-6'>
-                <h2 className='font-bold capitalize text-2xl text-light z-0'>
+                <h2 className='font-bold capitalize text-sm xs:text-base sm:text-xl md:text-2xl text-light z-0
+                sm:mt-4 mt-2'>
                     <span className='bg-gradient-to-r from-accent to-accent bg-[length:0px_6px]
                     hover:bg-[length:100%_6px] bg-left-bottom bg-no-repeat transition-[background-size]
                     duration-700'>

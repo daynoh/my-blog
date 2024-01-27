@@ -5,7 +5,9 @@ import rehypePrettyCode from 'rehype-pretty-code'
 import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
 import GithubSlugger from 'github-slugger'
+import {Transformer} from 'unified'
 
+const rehypePrettyCodeTransformer = rehypePrettyCode as unknown as Transformer<any, any>;
 const Blog = defineDocumentType(() => ({
   name: 'Blog',
   filePathPattern: '**/**/*.mdx',
@@ -83,7 +85,7 @@ export default makeSource({
   contentDirPath: 'content',
   documentTypes: [Blog],
   mdx:{ remarkPlugins:[remarkGfm], rehypePlugins:[rehypeSlug, [rehypeAutolinkHeadings, {behavior:"append"}]
-,[rehypePrettyCode, codeOptions]]}
+,[rehypePrettyCodeTransformer, codeOptions]]}
 
   
 })
