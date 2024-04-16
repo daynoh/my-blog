@@ -23,6 +23,7 @@ const HomeCoverSection = ({blogs}:blogsProps) => {
             blurDataURL={blog.image!.blurhashDataUrl}
             fill
             alt = {blog.title}
+            priority
             
             className='w-full h-full object-center object-cover rounded-3xl z-0'/>
 
