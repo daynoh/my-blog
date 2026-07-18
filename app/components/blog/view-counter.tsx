@@ -3,14 +3,26 @@
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
 import React, { useEffect, useState } from 'react'
 
-const supabase = createClientComponentClient()
+interface ViewCounterProps {
+  slug: string
+  noCount?: boolean
+  showCount?: boolean
+}
 
-const ViewCounter = (slug:{slug:string}, noCount=false, showCount = true) => {
+const hasSupabaseConfig = Boolean(
+  process.env.NEXT_PUBLIC_SUPABASE_URL
+  && process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+)
+
+const ViewCounter = ({ slug, noCount = false, showCount = true }: ViewCounterProps) => {
   const [views, setViews] = useState(0)
 
   useEffect(()=>{
+    if (!hasSupabaseConfig || noCount) return
+
     const incrementView = async () =>{
       try{
+        const supabase = createClientComponentClient()
         let {data, error} = await supabase
         .rpc('increment', {
           slug
@@ -24,15 +36,16 @@ const ViewCounter = (slug:{slug:string}, noCount=false, showCount = true) => {
         console.error('An error occured incrementing view count',error)
       }
     }
-    if (!noCount){
-      incrementView()
-    }
+    incrementView()
 
   },[slug,noCount])
 
   useEffect(()=>{
+    if (!hasSupabaseConfig) return
+
     const getViews = async ()=>{
       try{
+        const supabase = createClientComponentClient()
         let {data: views, error} = await supabase.from('views').select('count').match({slug:slug}).single()
 
         if (error){
@@ -51,7 +64,8 @@ const ViewCounter = (slug:{slug:string}, noCount=false, showCount = true) => {
     }
     getViews()
   },[slug])
-  if (showCount){
+
+  if (showCount && hasSupabaseConfig){
   return (
     <div>
       {views} views

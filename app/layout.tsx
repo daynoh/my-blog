@@ -10,6 +10,7 @@ import Script from "next/script";
 const inter = Inter({ subsets: ["latin"], display: 'swap', variable: "--font-in" });
 const manrope = Manrope({ subsets: ["latin"],display: 'swap', variable: "--font-mr" });
 export const metadata: Metadata = {
+  metadataBase: new URL(siteMetadata.siteUrl),
   title: {
     template: `%s | ${siteMetadata.siteUrl}`,
     default: siteMetadata.title, // a default is required when creating a template
@@ -31,12 +32,12 @@ export const metadata: Metadata = {
     type: 'website',
   },
   robots: {
-    index: false,
+    index: true,
     follow: true,
     googleBot: {
       index: true,
-      follow: false,
-      noimageindex: true,
+      follow: true,
+      noimageindex: false,
       'max-video-preview': -1,
       'max-image-preview': 'large',
       'max-snippet': -1,

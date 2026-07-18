@@ -1,6 +1,6 @@
 import React from 'react'
 import { useForm } from 'react-hook-form';
-import { DribbbleIcon, GithubIcon, LinkedinIcon, TwitterIcon } from '../icons';
+import { GithubIcon, LinkedinIcon } from '../icons';
 import Link from 'next/link';
 
 const Footer = () => {
@@ -21,20 +21,18 @@ const Footer = () => {
             <input type="submit" className='bg-dark  dark:bg-light dark:text-dark text-light cursor-pointer font-medium rounded px-3 sm:px-5 py-2' />
         </form>
         <div className='flex items-center mt-3 sm:mt-8 py-3'>
-            <a href="http://" className="w-6 h-6 mr-4 inline-block"><LinkedinIcon className='hover:scale-110 transition-all ease duration-200'/></a>
-            <a href="http://" className="w-6 h-6 mr-4 inline-block"><TwitterIcon className='hover:scale-110 transition-all ease duration-200'/></a>
-            <a href="http://" className="w-6 h-6 mr-4 inline-block dark:fill-light"><GithubIcon className='hover:scale-110 transition-all ease duration-200 fill-dark'/></a>
-            <a href="http://" className="w-6 h-6 mr-4 inline-block"><DribbbleIcon className='hover:scale-110 transition-all ease duration-200'/></a>
+            <a href="https://www.linkedin.com/in/dennis-musingila-1951b4159/" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="w-6 h-6 mr-4 inline-block"><LinkedinIcon className='hover:scale-110 transition-all ease duration-200'/></a>
+            <a href="https://github.com/daynoh" target="_blank" rel="noreferrer" aria-label="GitHub" className="w-6 h-6 inline-block dark:fill-light"><GithubIcon className='hover:scale-110 transition-all ease duration-200 fill-dark'/></a>
         </div>
 
         <div className='w-full sm:mt-16 md:mt-24 font-medium border-t border-solid border-light 
         py-6 px-8 flex flex-col md:flex-row justify-between items-center'>
-            <span className='text-center'>© 2023 Musingila. All rights reserved.</span>
+            <span className='text-center'>&copy; 2026 Musingila Dennis. All rights reserved.</span>
             
             <Link href = '/sitemap.xml' className='text-center underline my-4 md:my-0'> sitemap.xml </Link>
 
             <div>
-                Made with &hearts; by <a href='#portofolio website' className='text-center underline'> Musingila </a>
+                Made with &hearts; by <a href='https://musingila-portfolio-v2.vercel.app/' target="_blank" rel="noreferrer" className='text-center underline'> Musingila </a>
             </div>
         </div>
 

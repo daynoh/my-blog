@@ -9,7 +9,7 @@ const Logo = () => {
         border border-solid border-dark dark:border-light mr-2 md:mr-4'>
             <Image src = {profileImg} alt = 'Musingila' className='w-full h-auto rounded-full'/>
         </div>
-        <span className='font-bold dark:font-semi-bold text-xl'>CodeWithMoose</span>
+        <span className='font-bold dark:font-semi-bold text-xl'>CodeWithMus</span>
     </Link>
   )
 }
